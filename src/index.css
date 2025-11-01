@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: radial-gradient(circle at top, #0b1b3f, #060b23);
+  overflow: hidden;
+}
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-wave {
+  animation: waveMove 6s ease-in-out infinite;
+  filter: blur(2px);
+}
+/* === Floating Emoji Effects === */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) rotate(10deg);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.6))
+            drop-shadow(0 0 10px rgba(255, 255, 0, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 100, 0.9))
+            drop-shadow(0 0 15px rgba(255, 255, 120, 0.6));
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite, glowPulse 4s ease-in-out infinite;
+  display: inline-block;
+}
+/* === Emoji glow colors === */
+.glow-happy {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 100, 0.9));
+}
+.glow-sad {
+  filter: drop-shadow(0 0 15px rgba(100, 180, 255, 0.8));
+}
+.glow-angry {
+  filter: drop-shadow(0 0 15px rgba(255, 80, 80, 0.9));
+}
+.glow-cool {
+  filter: drop-shadow(0 0 15px rgba(100, 255, 200, 0.8));
+}
+.glow-thinking {
+  filter: drop-shadow(0 0 15px rgba(255, 180, 100, 0.8));
+}
+.glow-calm {
+  filter: drop-shadow(0 0 15px rgba(180, 255, 255, 0.7));
+}
+.glow-party {
+  filter: drop-shadow(0 0 15px rgba(255, 150, 255, 0.9));
+}
+
+/* === Floating animation === */
+@keyframes floatGlowing {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0px); }
+}
+.animate-float-glow {
+  animation: floatGlowing 7s ease-in-out infinite;
+}
+
+/* === Hover "mood" animations === */
+@keyframes bounceFast {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+.animate-bounce-fast {
+  animation: bounceFast 0.6s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(8deg); }
+  75% { transform: rotate(-8deg); }
+}
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+.animate-wobble {
+  animation: wobble 0.8s ease-in-out;
+}
+
+@keyframes tilt {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+.animate-tilt {
+  animation: tilt 1s ease-in-out;
+}
+
+@keyframes pulseSlow {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+.animate-pulse-slow {
+  animation: pulseSlow 2s ease-in-out;
+}
+
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spinSlow 2s linear;
+}
+/* === Floating + drifting motion === */
+@keyframes floatDrift {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  25% {
+    transform: translate(15px, -20px);
+  }
+  50% {
+    transform: translate(-10px, -30px);
+  }
+  75% {
+    transform: translate(-15px, -10px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.animate-float-drift {
+  animation: floatDrift 8s ease-in-out infinite;
+}
+/* === Hover mood reactions === */
+
+/* Happy: bounce */
+.hover-happy:hover {
+  animation: bounceFast 0.6s ease-in-out;
+}
+
+/* Sad: soft wobble */
+.hover-sad:hover {
+  animation: wobble 0.8s ease-in-out;
+}
+
+/* Angry: shake violently */
+.hover-angry:hover {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Cool: gentle tilt */
+.hover-cool:hover {
+  animation: tilt 1s ease-in-out;
+}
+
+/* Thinking: slow pulse */
+.hover-thinking:hover {
+  animation: pulseSlow 1.5s ease-in-out;
+}
+
+/* Calm: soft float + glow */
+.hover-calm:hover {
+  animation: floatGlowing 1.8s ease-in-out;
+}
+
+/* Party: spin */
+.hover-party:hover {
+  animation: spinSlow 1.5s linear;
+}
