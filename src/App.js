@@ -77,7 +77,8 @@ function App() {
   const analyzeSentiment = async () => {
     if (!text.trim()) return;
     try {
-      const res = await axios.post("http://127.0.0.1:8000/analyze", { text });
+      const res = await axios.post("https://social-sentiment-backend.onrender.com/analyze", { text });
+
       setResult(res.data.sentiment);
     } catch (error) {
       console.error("Error:", error);
