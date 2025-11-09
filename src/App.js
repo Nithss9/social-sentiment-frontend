@@ -77,7 +77,14 @@ function App() {
   const analyzeSentiment = async () => {
     if (!text.trim()) return;
     try {
-      const res = await axios.post("https://social-sentiment-backend.onrender.com/analyze", { text });
+   const res = await axios.post(
+  "/proxy/analyze",
+  { text },
+  { headers: { "Content-Type": "application/json" } }
+);
+
+
+
 
       setResult(res.data.sentiment);
     } catch (error) {
@@ -103,7 +110,7 @@ function App() {
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Enter text or hashtag..."
+          placeholder="Enter the text..."
           className="w-full px-5 py-3 text-black rounded-full focus:outline-none border border-blue-400 shadow-inner"
         />
 
